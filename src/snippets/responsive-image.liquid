@@ -1,0 +1,37 @@
+
+{%- capture responsive_image_counter %}{% increment responsive_image_counter %}{% endcapture -%}
+
+<style>
+
+  {%- if image.aspect_ratio <= 1 -%}
+    {%- assign max_height_image = image.height | at_most: max_height -%}
+    {%- assign max_width_image = max_height_image | times: image.aspect_ratio -%}
+  {%- else -%}
+    {%- assign max_width_image = image.width | at_most: max_width -%}
+    {%- assign max_height_image = max_width_image | divided_by: image.aspect_ratio -%}
+  {%- endif -%}
+
+  #Image{
+    max-width: {{ max_width_image }}px;
+    max-height: {{ max_height_image }}px;
+  }
+  #ImageWrapper {
+    max-width: {{ max_width_image }}px;
+  }
+</style>
+
+{%- assign img_url = image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+<div id="ImageWrapper" data-image-id="{{ image.id }}" class="responsive-image__wrapper"
+  style="background-image: url({{ image | img_url: 'master' }});"
+>
+<div class="collection__list--content">
+  <h2>{{ collection.title | default: default_label }}</h2>
+  <button class="btn" href="{{ block.settings.button1 }}">
+    <p>{{ block.settings.button1_sub  }}</p>
+  </button>
+  <button class="btn"  href="{{ block.settings.button2 }}">
+    <p>{{ block.settings.button2_sub  }}</p>
+  </button>
+</div>
+</div>

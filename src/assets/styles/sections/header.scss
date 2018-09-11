@@ -1,0 +1,204 @@
+.header{
+  top: 0;
+  z-index: 8;
+  height: 60px;
+  margin: 0 auto;
+  width: 100%;
+  background-color: #ffffff00;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-color: #808284;
+  position: fixed;
+
+  a{
+    text-decoration: none;
+    color: #fff;
+  }
+  .header_far{
+    width: calc(100% / 3);
+    height: 100%;
+  }
+
+  .header_far--left, .header_far--right{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    height: 100%;
+    align-items: center;
+  }
+  .header_far--left{
+        justify-content: flex-start;
+        margin-left: 40px;
+        span{
+          user-select: none;
+          cursor: pointer;
+          .header__menu--item{
+            cursor: default;
+            display: flex;
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+
+            .header__menu-item-links{
+              padding-right: 30px;
+              display: flex;
+              height: 60px;
+              width: 100%;
+              align-items: center;
+              justify-content: center;
+            }
+          }
+        }
+  }
+
+  .header_far--middel{
+    .logo-text{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: 160px;
+      stroke: none;
+      position: relative;
+      top: 3px;
+      margin: 0 auto;
+      svg{
+        width: 100%;
+        fill: white;
+      }
+    }
+  }
+
+  .header_far--right{
+    margin-right: 40px;
+    .header__account--link{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      padding-left: 40px;
+      cursor: default;
+
+      .app-header--transparent-border{
+        border-bottom: 1px solid transparent;
+      }
+      .app-header__menu-item-link{
+          height: 60px;
+          width: 100%;
+          display: flex;
+          padding-right: 30px;
+          align-items: center;
+          justify-content: center;
+      }
+
+      .brand-link{
+        font-family: graphik,Helvetica Neue,Helvetica,Arial,'sans-serif';
+        font-size: 13px;
+        line-height: 21.034px;
+        background: none;
+        border: 0;
+        cursor: pointer;
+        color: #a3a5a7;
+        stroke: #a3a5a7;
+        display: inline-block;
+        text-decoration: none;
+        padding: 0;
+      }
+      .header--transparent-border{
+        padding-right: 30px;
+      }
+      .app-header__value-prop-badge{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #bb8b7d;
+            border-radius: 25px;
+            height: 100%;
+            min-width: 50px;
+      }
+    }
+    .header__cart{
+      display: flex;
+      align-items: center;
+      height: 100%;
+
+      .header__cart-badge{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid;
+        border-radius: 25px;
+        height: 40px;
+        margin-left: 30px;
+        margin-right: 0;
+
+        svg{
+          height: 24px;
+          position: relative;
+          fill: inherit;
+          stroke: inherit;
+        }
+      }
+    }
+  }
+}
+//scroll nav bar
+.header__hover:hover{
+    background-color: white;
+    box-shadow: none;
+    color: #fff;
+    fill: #fff;
+    stroke: #fff;
+    border-color: #fff;
+    transition-delay: 125ms;
+    box-shadow: 0 2px 4px 0 rgba(76,76,75,.1);
+    a{
+      color: #808284;
+    }
+    svg{
+          fill: #808284;
+    }
+    .header__cart-badge{
+      svg{
+        path{
+          fill: #808284;
+        }
+      }
+    }
+  }
+
+  .header__hover--alt{
+      background-color: #fff;
+      position: fixed;
+      width: 100%;
+      transition: all 0.5s;
+      z-index: 8;
+      box-shadow: 0 2px 4px 0 rgba(76,76,75,.1);
+      .header_far--middel{
+        .logo-text{
+          a{
+            svg{
+              fill: #808284;
+            }
+          }
+        }
+      }
+// ul{
+//  li{
+   a{
+     color: #808284;
+   }
+   .header__cart-badge{
+     svg{
+       path{
+         fill: #808284;
+       }
+     }
+   }
+//  }
+// }
+svg{
+     fill: #808284;
+   }
+}

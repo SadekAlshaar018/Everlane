@@ -1,0 +1,93 @@
+<div class="content-wrap">
+  <div class="content">
+    <div class="collection-page">
+      <div class="collection__breadcrumbs-container">
+        <ul class="breadcrumbs">
+          <li>
+            {% include 'breadcrumbs' %}
+          </li>
+        </ul>
+      </div>
+      <div class="groupings container-1400">
+        <div class="row">
+          {%- include 'sidebar' -%}
+          <div class="col-xs-10">
+            {% section 'cover-collection'%}
+            <div class="row">
+                <div class="collection__display-groups">
+
+
+                  <div class="collection__grouping">
+                    <div class="product-subheading">
+                      <h2 class="grouping-name">
+                        <!-- {{ product.vendor }} -->
+                          #1
+                              {{ collection.title }} :
+                          {% for product_vendor in collection.all_vendors %}
+                            {% if product_vendor == 'The Day Market Tote' %}
+                              {{ product_vendor }}
+                            {% endif %}
+                          {% endfor %}
+
+                      </h2>
+                      <h4 class="grouping-description"></h4>
+                    </div>
+                    <div class="products">
+                      {% for product in collection.products %}
+                      {% if product.featured_image != blank %}
+                      <div class="product-container col-xs-4">
+                        <div class="product">
+                          <div class="product-image-container">
+                            <div class="product-image product-image--4x5 hover">
+                              <a href="{{ product.url | within: collection }}" class="product-image__link">
+
+                                   <img src="{{ product.images[0] | product_img_url: 'large' }}" alt="{{ product.images[0].alt | escape }}" />
+                                   <!-- <img class="hidden" src="{{ product.images[1] | product_img_url: 'large' }}" alt="{{ product.images[1].alt | escape }}" /> -->
+                              </a>
+                            </div>
+                          </div>
+                          <div class="product-details-container">
+                            <div class="product-details">
+                              <a href="{{ product.url | within: collection }}" class="clearfix product__link">
+                                <h3 class="product__name">
+                                    {{ product.title }}
+                                </h3>
+                                <span class="product__price">
+                                    {{  product.price | divided_by: 100 | money}}
+                                </span>
+                                <h4 class="product__label"></h4>
+                                <span class="product__color">
+                                  black
+                                </span>
+                              </a>
+                              <div class="product__additional-colors">
+                                  <a href="#" class="product__link">
+                                    7 colors  available
+                                  </a>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="wishlist-button-container">
+                            <div class="collection-page__wishlist-button">
+                              <span></span>
+                              {% include 'like' %}
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+
+                        {% endif %}
+                      {% endfor %}
+                    </div>
+                    </div>
+
+
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

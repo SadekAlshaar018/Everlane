@@ -1,0 +1,17 @@
+<div class="col-xs-2">
+  <ul class="collection-nav">
+    {% for collection in collections %}
+    <li class="collection-nav__item">
+      <a href="{{ collection.url }}" class="collection-nav__link">
+        {{ collection.title  }}
+      </a>
+    </li>
+    {% else %}
+    <li class="collection-nav__item">
+      <a href="{{ collection.url }}" class="collection-nav__link">
+        {{ collection.title  | link_to_tag: tag }}
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>

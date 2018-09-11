@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-xs-12">
+    <div class="content-page collection__subhero-content-page" id="content_page_5218">
+      <div class="content-page__content">
+        <section class="subhero
+                subhero--{% if section.settings.position == 'left'%}left{% endif %}
+                subhero--{% if section.settings.position == 'right'%}right{% endif %}
+                subhero--{% if section.settings.position == 'center'%}center{% endif %}
+                "
+
+          style="background-image:url({{ collection.image | img_url: 'master'}});"
+        >
+          <div class="subhero__content-container">
+              <h1 class="subhero__large-heading">{{ collection.title }}</h1>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Product pages",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "cover",
+        "label": "Cover collection"
+      },
+      {
+         "type":      "radio",
+         "id":        "position",
+         "label":     "Position",
+         "options": [
+           { "value": "right", "label": "flex right" },
+           { "value": "left", "label": "flex left" },
+           { "value": "center", "label": "flex center" }
+         ],
+         "default":   "right",
+         "info":      "Postion"
+      }
+    ]
+  }
+{% endschema %}

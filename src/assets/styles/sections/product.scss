@@ -1,0 +1,293 @@
+.col-xs{
+  padding: 0 10px;
+}
+.col-xs-8{
+  width: 66.666667%;
+}
+.col-xs-4{
+  width: 33.333333%;
+}
+.col-xs-10{
+
+  .container-1020{
+    max-width: 1020px;
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+
+    .row{
+      margin: 0 !important;
+      width: 100%;
+      display: flex;
+
+      .product-gallery{
+        display: flex;
+
+        .product-gallery__thumbs-container{
+          width: 9%;
+          margin-right: 10px;
+          .sticky-kit__container{
+            height: 100%;
+            .sticky-kit_container__element {
+              height: 100%;
+              .product-gallery__thumbs{
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+              }
+            }
+          }
+        }
+        .sticky{
+          position: sticky;
+          top: 60px;
+          height: 11.2%;
+        }
+        .product-gallery__assets-container {
+            width: 91%;
+
+            .product-gallery__assets{
+              // height: 2995px;
+              padding-left: 10px;
+
+              .product-gallery__placeholder{
+                background-color: #f3f3f3;
+                margin-bottom: 10px;
+                // height: 581px;
+                .asset-zoom-wrapper{
+                  position: relative; overflow: hidden;
+
+                  .product-gallery__asset--image {
+                      width: 100%;
+                      height: auto;
+                  }
+                  .product-gallery__asset {
+                    background-color: #fff;
+                  }
+                }
+              }
+            }
+        }
+      }
+      .col-xs-4{
+        float: left;
+        .sticky-kit__container{
+              height: 2955px;
+              position: sticky;
+              top: 60px;
+              height: 31%;
+              .sticky-kit__element{
+                    padding-bottom: 20px;
+                    .product-page__sidebar {
+                      width: auto;
+                      padding-right: 0;
+
+                      .product-heading {
+                        margin-bottom: 12px;
+                        display: block;
+
+                        .product-heading__name{
+                            font-family: csb,Century Schoolbook,Georgia,serif;
+                            font-size: 20px;
+                            font-weight: 100;
+                            line-height: 26px;
+                            margin-bottom: 0;
+                            color: #4c4c4b;
+                        }
+
+                        .product-heading__traditional-price {
+                          .brand-link {
+                                  font-family: graphik,Helvetica Neue,Helvetica,Arial,'sans-serif';
+                                  font-size: 12px;
+                                  line-height: 19.416px;
+                                  border: 0;
+                                  color: #a3a5a7;
+                                }
+                        }
+                        .product__review{
+                          .spr-container{
+                            border: unset;
+                            border-bottom: 1px solid #ECECEC;
+                            display: flex;
+                            justify-content: flex-start;
+                            flex-direction: column;
+                            padding-left: 0;
+                            .spr-header{
+                              h2{
+                                display: none;
+                              }
+                              .spr-summary{
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                float: left;
+                                line-height: 28px;
+                                .spr-starrating{
+                                  margin: 0 30px 0 0;
+                                }
+                                .spr-summary-actions{
+                                  font-size: 14px;
+                                  width: 100%;
+                                  float: left;
+                                  a{
+                                    float: none;
+                                    padding-left: 8px;
+                                  }
+                                }
+                                .spr-summary-caption{
+                                  // display: none;
+                                }
+                              }
+                            }
+                            .spr-content{
+                              .spr-reviews{
+                                display: none;
+                              }
+
+                            }
+                          }
+                        }
+                    }
+                    .product-page__options{
+                      margin: 0 auto;
+
+                      .review-mini-cta{
+                        margin-bottom: 12px;
+
+                        .review__rating{
+                          margin-bottom: 0;
+                          display: inline-block;
+                        }
+                      }
+                      .product-page__options-section{
+
+                        form{
+                          .selector-wrapper{
+                            .selector-wrapper__title{
+                              font-family: graphik,Helvetica Neue,Helvetica,Arial,"sans-serif";
+                              font-size: 12px;
+                              line-height: 10px;
+                              color: #a3a5a7;
+                              display: block;
+                              margin-bottom: 10px;
+                              position: relative;
+                              span{
+                                color: #808284;
+                              }
+                              .optie{
+                                margin-bottom: 20px;
+                              }
+                              .Color{
+                                .sub__Color{
+                                  .color{
+                                    border-radius: 30px;
+                                    border: 1px solid #dfe0e1;
+                                    box-sizing: border-box;
+                                    min-width: 22px;
+                                    min-height: 22px;
+                                  }
+                                  .white{
+                                    background-color: #fff;
+                                  }
+                                  .Black{
+                                    background-color: #000;
+                                  }
+                                  .Muted{
+                                        background-color: #5E789C;
+                                  }
+                                  .Topaz{
+                                    background-color: #F0A648;
+                                  }
+                                  .Navy{
+                                    background: linear-gradient( -45deg, #fff, #fff 50%, #272D4B 50% );
+                                      border-radius: 50%;
+                                  }
+                                }
+                              }
+                            }
+                            .selector-wrapper{
+                              font-family: graphik,Helvetica Neue,Helvetica,Arial,"sans-serif";
+                              font-size: 13px;
+                              line-height: 21.034px;
+                              display: inline-flex;
+                              min-width: 40px;
+                              min-height: 40px;
+                              cursor: pointer;
+                              color: #4c4c4b;
+                              margin-right: 8px;
+                              margin-bottom: 8px;
+                              border: 1px solid #fafafa;
+                              background-color: #fafafa;
+                              box-sizing: border-box;
+                              align-items: center;
+                              justify-content: center;
+                            }
+                            .selector-wrapper__size:hover{
+                              border: 1px solid #dfe0e1;
+                            }
+                          }
+                        }
+                      }
+                      .product-page__info{
+                        text-align: left;
+                        color: #a3a5a7;
+                        margin: 20px 0;
+
+                        .product-info__headline{
+                          font-family: graphik,Helvetica Neue,Helvetica,Arial,"sans-serif";
+                          font-size: 10px;
+                          line-height: 16.18px;
+                          text-transform: uppercase;
+                          letter-spacing: .05em;
+                          margin-bottom: 5px;
+                        }
+                        .product-details{
+                          .product-details__container{
+                            font-family: graphik,Helvetica Neue,Helvetica,Arial,"sans-serif";
+                            font-size: 12px;
+                            line-height: 19.416px;
+                            color: #808284;
+                            li{
+                              span{
+                                  ul{
+                                    li{
+                                      display: flex;
+                                      .meta_icon{
+                                        padding-right: 10px;
+                                        svg{
+                                          width: 15px;
+                                          height: 20px;
+                                          opacity: 0.2;
+                                         }
+                                      }
+                                    }
+                                  }
+                              }
+                            }
+                          }
+                          ul{
+                            padding-left: 0;
+
+                          }
+                        }
+                        .product-description{
+                          .product-description__container{
+                            font-family: graphik,Helvetica Neue,Helvetica,Arial,"sans-serif";
+                            font-size: 12px;
+                            line-height: 19.416px;
+                          }
+                        }
+                      }
+                    }
+                  }
+              }
+        }
+      }
+
+    }
+  }
+.spr-icon{
+      color: #f7df61;
+}
+}

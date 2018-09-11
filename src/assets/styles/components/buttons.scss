@@ -1,0 +1,85 @@
+button{
+  border-radius: 0;
+}
+.button {
+  display: inline-block;
+  vertical-align: middle;
+  width: auto;
+  border: 0;
+  text-align: center;
+  white-space: nowrap;
+  text-decoration: none;
+  user-select: none;
+  appearance: none;
+}
+.btn{
+  font-family: graphik--medium,Helvetica Neue,Helvetica,Arial,'sans-serif';
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22.652px;
+  transition-timing-function: ease;
+  letter-spacing: .05rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  background-color: #fff;
+  border: 0;
+  border-radius: 0;
+  cursor: pointer;
+  padding: 10px 35px;
+  color: #4d4d4d;
+  font-size: 10px;
+  display: inline-block;
+  margin: 32px 8px 0;
+}
+.button__footer{
+  font-family: graphik--medium,Helvetica Neue,Helvetica,Arial,'sans-serif';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22.652px;
+    transition-duration: .2s;
+    transition-timing-function: ease;
+    letter-spacing: .05rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    background-color: $darkGray;
+    border: 0;
+    border-radius: 0;
+    cursor: pointer;
+    padding: 10px 35px;
+    color: #fff;
+    width: 100%;
+}
+.review-mini-cta__prompt{
+    font-family: graphik,Helvetica Neue,Helvetica,Arial,'sans-serif';
+    font-size: 12px;
+    line-height: 19.416px;
+    color: #a3a5a7;
+    cursor: pointer;
+    border: none;
+    background: none;
+    padding: 0;
+    text-align: left;
+}
+.btn-add{
+    margin: 0;
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+    font-family: graphik--medium,Helvetica Neue,Helvetica,Arial,"sans-serif";
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22.652px;
+    transition-timing-function: ease;
+    letter-spacing: .05rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    background-color: #4c4c4b;
+    border: 0;
+    border-radius: 0;
+    cursor: pointer;
+    padding: 10px 35px;
+
+span{
+  color: #fff;
+}
+}

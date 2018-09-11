@@ -1,0 +1,123 @@
+<footer>
+<div class="footer__content">
+  <div class="footer__content--contact">
+    <h5 class="footer__subscribe">
+      Exceptional quality. Ethical factories. Radical Transparency. Sign up to enjoy free U.S. shipping and returns on your first order.
+    </h5>
+    <form class="login__check-email-form" action="index.html" method="post">
+      <fieldset class="form__input-group form__input-group--block ">
+        <div class="">
+          <input type="email" name="email" class="form__input form__input--block form__input--left " placeholder="Email Address" />
+        </div>
+      </fieldset>
+      <button type="button" name="button" class="button__footer">continue </button>
+    </form>
+  </div>
+  <nav class="footer__content--links">
+    {%- assign footer_linklist = section.settings.footer_linklist -%}
+    {% if linklists[footer_linklist].links.size > 0 %}
+      <ul>
+        {% for link in linklists[footer_linklist].links %}
+
+          <li class="section">
+            <h6 class="footer_column--heading">{{ link.title }}</h6>
+            <ul>
+                {% for child_link in linklists[footer_linklist].links %}
+                  <li>
+                    <a href="{{ link.url }}" class="footer_link">
+                        {{ child_link }}Hello
+                    </a>
+                  </li>
+                {% endfor %}
+            </ul>
+        </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+  </nav>
+
+<!-- <div class="test">
+{%- assign footer_linklist = section.settings.footer_linklist -%}
+{% if linklists[footer_linklist].links.size > 0 %}
+  <ul>
+    {% for link in linklists[footer_linklist].links %}
+      <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endif %}
+</div> -->
+
+  {% if section.settings.show_payment_icons %}
+    {% unless shop.enabled_payment_types == empty %}
+      {%- assign payment_icons_available = 'amazon_payments,american_express,apple_pay,bitcoin,cirrus,dankort,diners_club,discover,dogecoin,dwolla,forbrugsforeningen,google_pay,interac,jcb,litecoin,maestro,master,paypal,visa' | split: ',' -%}
+
+      <span class="visually-hidden">{{ 'layout.footer.payment_methods' | t }}</span>
+      <ul class="payment-icons">
+        {% for type in shop.enabled_payment_types %}
+          {% if payment_icons_available contains type %}
+            <li>
+              {%- assign icon_name = type | prepend: 'icon-' -%}
+              {% include icon_name %}
+              <span class="visually-hidden">{{ type | capitalize | replace: '_', ' ' }}</span>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    {% endunless %}
+  {% endif %}
+</div>
+<div class="footer__info">
+  <nav class="footer__nav">
+    <ul class="horizontal">
+      <li class="heading">
+        <small> &copy; {{ 'now' | date: "%Y" }} {{ shop.name }}.</small>
+      </li>
+      <li class=" footer-sitemap-link">
+        <a href="#" class="footer_link">Privacy Policy</a>
+       </li>
+      <li class=" footer-sitemap-link">
+        <a href="#" class="footer_link">Privacy Policy</a>
+       </li>
+      <li class=" footer-sitemap-link">
+        <a href="#" class="footer_link">Privacy Policy</a>
+       </li>
+      <li class=" footer-sitemap-link">
+        <a href="#" class="footer_link">Privacy Policy</a>
+       </li>
+      <li class=" footer-sitemap-link">
+        <a href="#" class="footer_link">Privacy Policy</a>
+       </li>
+      <li class=" footer-sitemap-link">
+        <a href="#" class="footer_link">Privacy Policy</a>
+      </li>
+    </ul>
+
+
+  </nav>
+</div>
+
+
+
+</footer>
+
+{% schema %}
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "link_list",
+        "id": "footer_linklist",
+        "label": "First menu",
+        "default": "footer"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_payment_icons",
+        "label": "Show payment icons",
+        "default": false
+      }
+    ]
+  }
+
+{% endschema %}

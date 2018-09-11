@@ -1,0 +1,91 @@
+<section class="collection__list1">
+
+  {% for block in section.blocks %}
+    {%- assign collection = collections[block.settings.collection] -%}
+
+      <div class="collection__product">
+        <a href="{{ collection.url | default: "#" }}" class="collection-list-item" {{ block.shopify_attributes }}>
+          {% if collection.image != blank or collection.products.first != blank %}
+            {%- assign image_object = collection.image | default: collection.products.first.featured_image -%}
+            <div class="collection-list__image">
+              {% include 'responsive-image' with
+                image: image_object,
+                max_width: 480,
+                max_height: 480
+              %}
+
+            </div>
+          {% elsif collection == empty %}
+            {% capture current %}
+              {% cycle 1, 2 %}
+            {% endcapture %}
+            {{ 'collection-' | append: current | placeholder_svg_tag: 'placeholder-svg placeholder-svg--small' }}
+          {% endif %}
+
+          {%- assign default_label = 'homepage.onboarding.collection_title' | t -%}
+
+
+        </a>
+      </div>
+
+    {% endfor %}
+
+  {% if section.blocks.size == 0 %}
+    {% include 'no-blocks' %}
+  {% endif %}
+</section>
+
+{% schema %}
+  {
+    "name": "Collection list",
+    "max_blocks": 3,
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Collection list"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "collection",
+        "name": "Collection",
+        "settings": [
+          {
+            "label": "Collection",
+            "id": "collection",
+            "type": "collection"
+          },
+          {
+            "id": "button1",
+            "type": "url",
+            "label": "Banner button link (1)"
+          },
+          {
+            "id": "button1_sub",
+            "type": "text",
+            "label": "Label button(1)"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Collection list Home2",
+        "category": "Collection",
+        "blocks": [
+          {
+            "type": "collection"
+          },
+          {
+            "type": "collection"
+          },
+          {
+            "type": "collection"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

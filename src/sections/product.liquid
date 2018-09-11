@@ -1,0 +1,274 @@
+<div class="content-wrap">
+  <div class="content">
+    <div class="collection-page">
+      <div class="collection__breadcrumbs-container">
+        <ul class="breadcrumbs">
+          <li>
+            {% include 'breadcrumbs' %}
+          </li>
+        </ul>
+      </div>
+      <div class="groupings container-1400">
+        <div class="row">
+          {%- include 'sidebar' -%}
+          <div class="col-xs-10">
+            <div class="container-1020">
+              <div class="row">
+                <div class="col-xs-8 product-gallery">
+                  <div class="product-gallery__thumbs-container" id="stickymenu">
+                    <div class="sticky-kit__container" >
+                      <div class="sticky-kit__element " >
+                        <div class="product-gallery__thumbs">
+
+                              {% if product.images.size > 1 %}
+                                  {% for image in product.images %}
+                                  <div class="product-gallery__thumb" >
+                                        <img class="product-single__thumbnail-image" src="{{ image.src | img_url: 'master' }}" alt="{{ image.alt | escape }}" style="width: 57.4615px;">
+                                  </div>
+                                  {% endfor %}
+                                {% endif %}
+                          </div>
+                        </div>
+                      </div>
+<!--
+                      <div >
+
+                      </div> -->
+                    </div>
+                    <div class="product-gallery__assets-container">
+                      <div >
+                        <div class="product-gallery__assets">
+
+                              {% for image in product.images %}
+                              <div class="product-gallery__placeholder">
+                                <div class="asset-zoom-wrapper">
+                                    <img class="product-gallery__asset product-gallery__asset--image" src="{{ image.src | img_url: 'master' }}" alt="{{ image.alt | escape }}" >
+                                  </div>
+                                </div>
+                              {% endfor %}
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-xs-4">
+                    <div class="sticky-kit__container">
+                      <div class="sticky-kit__element is_stuck">
+                        <div class="product-page__sidebar">
+                          <hgroup class="product-heading">
+                            <h1 class="product-heading__name">
+                              <span>
+                                {{ product.title }}
+                              </span>
+                              -&nbsp;
+                              <span>
+                                <span>
+                                  <span class="product-heading__price-value">
+                                    {{ product.price | money }}
+                                  </span>
+                                </span>
+                              </span>
+                            </h1>
+                            <h3 class="product-heading__price">
+                              <div class="product-heading__traditional-price">
+                                <button class="brand-link">
+                                  Traditional Retail:$305
+                                </button>
+                              </div>
+                            </h3>
+                            <!-- reviews Cstomer's -->
+                              <div id="shopify-product-reviews" data-id="{{product.id}}" class="product__review">{{ product.metafields.spr.reviews }}</div>
+                          </hgroup>
+                          <!-- optie product -->
+                          <div class="product-page__options">
+                            <div class="review-mini-cta">
+                              <button class="review-mini-cta__prompt">
+                                <div class="review__rating">
+
+                                </div>
+                                <span class="review-mini-cta__messaging">
+                                  <span>
+                                    <span class="review-mini-cta__rating-text">
+                                    </span>
+                                    <span class="review-mini-cta__count-text">
+                                      <span class="review-mini-cta__see-text"></span>
+                                    </span>
+                                  </span>
+                                </span>
+                              </button>
+                            </div>
+                            <div>
+                              <div class="product-page__options-section product-page__color-section">
+                                <form action="/cart/add" method="post" enctype="multipart/form-data">
+                                  {% unless product.has_only_default_variant %}
+                                    {% for option in product.options_with_values %}
+                                      <div class="selector-wrapper js">
+                                        <div for="SingleOptionSelector-{{ forloop.index0 }}" class="selector-wrapper__title">
+
+                                            {% if option.name == 'Color' %}
+                                            <div class="{{ option.name }}">
+                                              <div class="optie head__{{ option.name }}">
+                                                {{ option.name }}
+                                              </div>
+                                              <div class="sub__{{ option.name }}">
+                                                {% for value in option.values %}
+                                                  <span
+                                                    value="{{ value | escape }}"
+                                                    {% if option.selected_value == value %}selected="selected"{% endif %} class="selector-wrapper color {{ value }}">
+                                                      {% if value %}
+                                                      {%else%}
+                                                        {{ value }}
+                                                      {%endif%}
+                                                  </span>
+                                                {% endfor %}
+                                              </div>
+                                            </div>
+
+                                            {% else %}
+                                            <div class="{{ option.name }}">
+                                              <div class="optie head__{{ option.name }}">
+                                                {{ option.name }}
+                                              </div>
+                                              <div class="sub__{{ option.name }}">
+                                                {% for value in option.values %}
+                                                  <span
+                                                    value="{{ value | escape }}"
+                                                    {% if option.selected_value == value %}selected="selected"{% endif %} class="selector-wrapper {{ value }}">
+                                                      {% if value  == 'white'%}
+                                                      {%else%}
+                                                      {{ value }}
+                                                      {%endif%}
+                                                  </span>
+                                                {% endfor %}
+                                              </div>
+                                            </div>
+                                            {% endif %}
+
+                                        </div>
+
+                                        <div
+                                          id="SingleOptionSelector-{{ forloop.index0 }}"
+                                          data-single-option-selector
+                                          data-index="option{{ option.position }}" >
+
+                                        </div>
+                                      </div>
+                                    {% endfor %}
+                                  {% endunless %}
+
+                                  <div name="id" class="no-js" data-product-select>
+                                    {% for variant in product.variants %}
+                                      <span
+                                        {% if variant == current_variant %}selected="selected"{% endif %}
+                                        {% unless variant.available %}disabled="disabled"{% endunless %}
+                                        value="{{ variant.id }}">
+                                          {{ variant.title }}
+                                      </span>
+                                    {% endfor %}
+                                  </div>
+
+                                <span></span>
+
+                                  <div data-price-wrapper>
+                                    <span data-product-price>
+                                      {{ current_variant.price | money }}
+                                    </span>
+
+                                    {% if product.compare_at_price_max > product.price %}
+                                      <span class="visually-hidden" data-compare-text>{{ 'products.product.regular_price' | t }}</span>
+                                      <s data-compare-price>
+                                        {% if current_variant.compare_at_price > current_variant.price %}
+                                          {{ current_variant.compare_at_price | money }}
+                                        {% endif %}
+                                      </s>
+                                    {% endif %}
+                                  </div>
+
+                                  <button
+                                    type="submit"
+                                    name="add"
+                                    class="btn btn-add"
+                                    data-add-to-cart
+                                    {% unless current_variant.available %}disabled="disabled"{% endunless %}>
+                                      <span data-add-to-cart-text>
+                                        {% if current_variant.available %}
+                                          {{ 'products.product.add_to_cart' | t }}
+                                        {% else %}
+                                          {{ 'products.product.sold_out' | t }}
+                                        {% endif %}
+                                      </span>
+                                  </button>
+                                </form>
+                              </div>
+                            </div>
+                            <div>
+                              <div class="product-page__info">
+                                <span class="product-info__headline">
+                                  Details
+                                </span>
+                                <section class="product-details">
+                                  <ul class="product-details__container">
+                                    <li class="product-details__item product-details__item--fit">
+                                      <span>
+                                            <ul>
+                                              {% assign meta = product.metafields.deatiels %}
+                                                {% assign body = meta.body %}
+                                                {% assign fit = meta.fit %}
+                                                {% assign fabric = meta.fabric %}
+                                                {% assign factory = meta.factory %}
+                                                {% assign email = meta.email %}
+                                                <li>
+                                                  <span class="meta_icon">
+                                                    {%- include 'user' -%}
+                                                  </span> {{body}}
+                                                </li>
+                                                <li>
+                                                  <span class="meta_icon">
+                                                    {%- include 'fit' -%}
+                                                  </span> {{fit}}
+                                                </li>
+                                                <li>
+                                                  <span class="meta_icon">
+                                                    {%- include 'user' -%}
+                                                  </span> {{fabric}}
+                                                </li>
+                                                <li>
+                                                  <span class="meta_icon">
+                                                    {%- include 'world' -%}
+                                                  </span> {{factory}}
+                                                </li>
+                                                <li>
+                                                  <span class="meta_icon">
+                                                    {%- include 'email' -%}
+                                                  </span> {{email}}
+                                                </li>
+                                            </ul>
+                                      </span>
+                                    </li>
+                                  </ul>
+                                </section>
+                              </div>
+                              <div class="product-page__info">
+                                <span class="product-info__headline">Description</span>
+                                <section class="product-description">
+                                  <p class="product-description__container">
+                                    {{ product.description }}
+                                  </p>
+                                </section>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

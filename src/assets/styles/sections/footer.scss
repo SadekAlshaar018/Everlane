@@ -1,0 +1,162 @@
+footer{
+  display: flex;
+  flex-direction: column;
+    font-family: graphik,Helvetica Neue,Helvetica,Arial,'sans-serif';
+    font-size: 13px;
+    line-height: 21.034px;
+    border-top: 1px solid $whiteFooter;
+    position: relative;
+    min-width: 100%;
+    .footer_link{
+      font-family: graphik,Helvetica Neue,Helvetica,Arial,'sans-serif';
+      font-size: 13px;
+      line-height: 21.034px;
+      background: none;
+      border: 0;
+      cursor: pointer;
+      color: $lightGray;
+      stroke: $lightGray;
+      display: inline-block;
+      text-decoration: none;
+      padding: 0;
+    }
+    .footer__content{
+      display: flex;
+      padding: 32px 30px 0;
+      max-width: 1440px;
+      margin-left: auto;
+      margin-right: auto;
+
+      @media screen and (max-width: 800px){
+        display: flex;
+        flex-direction: column-reverse;
+      }
+
+      .footer__content--links{
+            order: 0;
+            width: 60%;
+            min-width: 640px;
+
+            @media screen and (max-width: 800px){
+                  margin: 0 auto;
+                  width: 100%;
+                  display: flex;
+                  justify-content: center;
+            }
+            ul{
+              list-style: none;
+              .section{
+                float: left;
+                margin-right: 55px;
+                margin-bottom: 40px;
+
+                ul{
+                  padding-left: 0;
+                  li{
+                    padding-right: 10px;
+                    padding-bottom: 5px;
+                  }
+                }
+              }
+              li{
+                padding-right: 10px;
+                padding-bottom: 5px;
+
+                .footer_column--heading{
+                  font-family: graphik,Helvetica Neue,Helvetica,Arial,'sans-serif';
+                  font-size: 13px;
+                  line-height: 21.034px;
+                  color: $darkGray;
+                  margin-bottom: 15px;
+                  display: block;
+                  font-weight: 400;
+                }
+              }
+            }
+      }
+      .footer__content--contact{
+            margin-bottom: 25px;
+            order: 1;
+            width: 40%;
+            margin-left: auto;
+
+            @media screen and (max-width: 800px){
+              margin: 0 auto;
+              width: 460px;
+            }
+            .footer__subscribe{
+              font-family: graphik,Helvetica Neue,Helvetica,Arial,'sans-serif';
+              font-size: 14px;
+              line-height: 12px;
+              font-weight: 400;
+              margin-right: 10px;
+              display: inline;
+              color: $darkGray;
+            }
+            .login__check-email-form{
+              position: relative;
+              margin-bottom: 38px;
+              margin-top: 40px;
+              .form__input-group{
+                margin-bottom: 15px;
+                position: relative;
+              }
+              input{
+                border: 0;
+                border-bottom: 2px solid $input;
+                padding-bottom: 4px;
+                padding-left: 0;
+                font-size: 16px;
+                width: 100%;
+              }
+              .form__input-group--block{
+                font-family: graphik,Helvetica Neue,Helvetica,Arial,'sans-serif';
+                font-size: 14px;
+                line-height: 22.652px;
+                border: 1px solid #dfe0e1;
+                background-color: #fff;
+                color: $darkGray;
+                box-sizing: border-box;
+                padding: 7px;
+                width: 100%;
+                border: unset;
+              }
+            }
+          }
+      }
+      .footer__info{
+        background-color: #f7f7f8;
+        padding: 15px 0;
+        .footer__nav{
+          max-width: 1440px;
+          margin: 0 auto;
+          .horizontal{
+            font-family: graphik,Helvetica Neue,Helvetica,Arial,'sans-serif';
+            font-size: 12px;
+            line-height: 19.416px;
+            clear: left;
+            color: #808284;
+            background-color: #f7f7f8;
+
+            .heading{
+              small{
+                font-size: 100%;
+              }
+            }
+            li{
+              display: inline-block;
+              padding: 0;
+              ::before{
+                padding: 0 20px;
+                content: '|';
+              }
+              a{
+                text-decoration: none;
+                font-size: inherit;
+                line-height: inherit;
+              }
+            }
+          }
+        }
+      }
+}
